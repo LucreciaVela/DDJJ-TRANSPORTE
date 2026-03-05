@@ -9,10 +9,23 @@ import streamlit as st
 
 if "login_ok" not in st.session_state:
     st.session_state.login_ok = False
-    if not st.session_state.login_ok:
+if not st.session_state.login_ok:
 
     st.markdown("""
     <style>
+    .stApp {
+        background: linear-gradient(135deg, #1E2F4F 0%, #2F4B7C 100%);
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+    st.title("Sistema DDJJ Transporte")
+
+    if st.button("Ingresar"):
+        st.session_state.login_ok = True
+        st.rerun()
+
+    st.stop()
 
     .stApp {
         background: linear-gradient(135deg, #1E2F4F 0%, #2F4B7C 100%);
