@@ -1,8 +1,3 @@
-"""
-ERSeP – DDJJ Transporte Interurbano
-Sistema de Declaración Jurada de Producción, Costos y Documentación
-Subdirección Jurisdicción de Costos y Tarifas – Provincia de Córdoba
-"""
 
 import streamlit as st
 import pandas as pd
@@ -11,6 +6,35 @@ import io
 import zipfile
 from pathlib import Path
 from datetime import datetime
+st.markdown("""
+<style>
+
+.stApp {
+    background-color: #F4F6F9;
+}
+
+header {
+    background-color: #0A2E5C;
+}
+
+h1 {
+    color: #0A2E5C;
+    font-weight: 700;
+}
+
+h2, h3 {
+    color: #1F4E79;
+}
+
+div[data-testid="stMetric"] {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+}
+
+</style>
+""", unsafe_allow_html=True)
 
 # ─── Rutas ────────────────────────────────────────────────────────────────────
 BASE_DIR   = Path(__file__).parent
