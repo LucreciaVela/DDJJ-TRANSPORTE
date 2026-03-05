@@ -6,35 +6,83 @@ import io
 import zipfile
 from pathlib import Path
 from datetime import datetime
+import streamlit as st
+
+st.set_page_config(page_title="DDJJ Transporte", layout="centered")
+
 st.markdown("""
 <style>
 
+/* Fondo degradado */
 .stApp {
-    background-color: #F4F6F9;
+    background: linear-gradient(135deg, #1E2F4F 0%, #2F4B7C 100%);
 }
 
-header {
-    background-color: #0A2E5C;
+/* Card central */
+.login-card {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    max-width: 500px;
+    margin: auto;
 }
 
-h1 {
-    color: #0A2E5C;
+/* Títulos */
+.title {
+    text-align: center;
+    color: white;
+    font-size: 28px;
     font-weight: 700;
 }
 
-h2, h3 {
-    color: #1F4E79;
+.subtitle {
+    text-align: center;
+    color: #DCE3F0;
+    margin-bottom: 40px;
 }
 
-div[data-testid="stMetric"] {
-    background-color: white;
-    padding: 15px;
+/* Inputs */
+input {
+    border-radius: 10px !important;
+}
+
+/* Botón */
+.stButton>button {
+    background-color: #4C6FBF;
+    color: white;
     border-radius: 10px;
-    box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+    height: 50px;
+    font-weight: 600;
+    width: 100%;
+}
+
+.stButton>button:hover {
+    background-color: #3958A8;
+}
+
+.footer {
+    text-align: center;
+    color: #BFC8DA;
+    margin-top: 30px;
+    font-size: 13px;
 }
 
 </style>
 """, unsafe_allow_html=True)
+st.markdown("<div class='title'>Sistema de DDJJ — Transporte Interurbano</div>", unsafe_allow_html=True)
+st.markdown("<div class='subtitle'>Ente Regulador de los Servicios Públicos · Provincia de Córdoba</div>", unsafe_allow_html=True)
+
+st.markdown("<div class='login-card'>", unsafe_allow_html=True)
+
+cuit = st.text_input("CUIT DE LA EMPRESA")
+password = st.text_input("CONTRASEÑA", type="password")
+
+login = st.button("Ingresar al sistema →")
+
+st.markdown("</div>", unsafe_allow_html=True)
+
+st.markdown("<div class='footer'>Subdirección Jurisdicción de Costos y Tarifas · ERSeP 2026</div>", unsafe_allow_html=True)
 
 # ─── Rutas ────────────────────────────────────────────────────────────────────
 BASE_DIR   = Path(__file__).parent
