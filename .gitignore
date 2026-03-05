@@ -1,0 +1,8 @@
+# Archivos subidos por empresas (no subir al repo público)
+uploads/
+# Datos declarados (opcional: comentar si querés versionar)
+# data/
+__pycache__/
+*.pyc
+.env
+*.DS_Store
