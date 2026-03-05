@@ -8,69 +8,114 @@ from pathlib import Path
 from datetime import datetime
 import streamlit as st
 
-st.set_page_config(page_title="DDJJ Transporte", layout="centered")
+if "login_ok" not in st.session_state:
+    st.session_state.login_ok = False
+    if not st.session_state.login_ok:
 
-st.markdown("""
+    st.markdown("""
+    <style>
+
+    .stApp {
+        background: linear-gradient(135deg, #1E2F4F 0%, #2F4B7C 100%);
+    }
+
+    .title {
+        text-align: center;
+        color: #F1F4FA;
+        font-size: 26px;
+        font-weight: 600;
+        margin-top: 20px;
+    }
+
+    .subtitle {
+        text-align: center;
+        color: #C9D4EA;
+        font-size: 14px;
+        margin-bottom: 40px;
+    }
+
+    .login-card {
+        background-color: #FFFFFF;
+        padding: 35px;
+        border-radius: 15px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+        max-width: 480px;
+        margin: auto;
+    }
+
+    .stButton>button {
+        background-color: #4C6FBF;
+        color: white;
+        border-radius: 10px;
+        height: 45px;
+        font-weight: 500;
+        width: 100%;
+    }
+
+    .stButton>button:hover {
+        background-color: #3958A8;
+    }
+
+    label {
+        font-size: 13px !important;
+        font-weight: 500;
+    }
+
+    input {
+        font-size: 14px !important;
+    }
+
+    </style>
+    """, unsafe_allow_html=True)
+
+    st.markdown("<div class='title'>Sistema de DDJJ — Transporte Interurbano</div>", unsafe_allow_html=True)
+    st.markdown("<div class='subtitle'>Ente Regulador de los Servicios Públicos · Provincia de Córdoba</div>", unsafe_allow_html=True)
+
+    st.markdown("<div class='login-card'>", unsafe_allow_html=True)
+
+    cuit = st.text_input("CUIT DE LA EMPRESA")
+    password = st.text_input("CONTRASEÑA", type="password")
+
+    if st.button("Ingresar al sistema →"):
+        st.session_state.login_ok = True
+        st.rerun()
+
+    st.markdown("</div>", unsafe_allow_html=True)
+
+    st.stop()
+    st.markdown("""
 <style>
 
-/* Fondo degradado */
 .stApp {
-    background: linear-gradient(135deg, #1E2F4F 0%, #2F4B7C 100%);
+    background-color: #F4F6F9;
 }
 
-/* Card central */
-.login-card {
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-    max-width: 500px;
-    margin: auto;
-}
-
-/* Títulos */
-.title {
-    text-align: center;
-    color: white;
-    font-size: 28px;
-    font-weight: 700;
-}
-
-.subtitle {
-    text-align: center;
-    color: #DCE3F0;
-    margin-bottom: 40px;
-}
-
-/* Inputs */
-input {
-    border-radius: 10px !important;
-}
-
-/* Botón */
-.stButton>button {
-    background-color: #4C6FBF;
-    color: white;
-    border-radius: 10px;
-    height: 50px;
+h1 {
+    font-size: 22px;
     font-weight: 600;
-    width: 100%;
+    color: #1F4E79;
 }
 
-.stButton>button:hover {
-    background-color: #3958A8;
+h2, h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #2F4B7C;
 }
 
-.footer {
-    text-align: center;
-    color: #BFC8DA;
-    margin-top: 30px;
-    font-size: 13px;
+p, div {
+    font-size: 14px;
+}
+
+div[data-testid="stMetric"] {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.08);
 }
 
 </style>
 """, unsafe_allow_html=True)
-
+    
 
 # ─── Rutas ────────────────────────────────────────────────────────────────────
 BASE_DIR   = Path(__file__).parent
