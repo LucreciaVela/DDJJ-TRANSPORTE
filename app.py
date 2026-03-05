@@ -70,19 +70,7 @@ input {
 
 </style>
 """, unsafe_allow_html=True)
-st.markdown("<div class='title'>Sistema de DDJJ — Transporte Interurbano</div>", unsafe_allow_html=True)
-st.markdown("<div class='subtitle'>Ente Regulador de los Servicios Públicos · Provincia de Córdoba</div>", unsafe_allow_html=True)
 
-st.markdown("<div class='login-card'>", unsafe_allow_html=True)
-
-cuit = st.text_input("CUIT DE LA EMPRESA")
-password = st.text_input("CONTRASEÑA", type="password")
-
-login = st.button("Ingresar al sistema →")
-
-st.markdown("</div>", unsafe_allow_html=True)
-
-st.markdown("<div class='footer'>Subdirección Jurisdicción de Costos y Tarifas · ERSeP 2026</div>", unsafe_allow_html=True)
 
 # ─── Rutas ────────────────────────────────────────────────────────────────────
 BASE_DIR   = Path(__file__).parent
